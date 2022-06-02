@@ -1,6 +1,6 @@
 {
   "name": "@edgedelta/serverless-plugin-edgedelta",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Serverless plugin template to add Edge Delta lambda extension to your lambda functions",
   "main": "dist/index.js",
   "author": "Edge Delta",
