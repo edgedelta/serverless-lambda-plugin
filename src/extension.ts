@@ -1,7 +1,7 @@
 import { Config } from "config";
 import { FunctionDefinition } from "serverless";
 import Service from "serverless/classes/Service";
-import { setEnvVarsToFunctions, removeEnvVarsFromFunction } from "./env-variables";
+import { setEnvVarsToFunction, removeEnvVarsFromFunction, setTagsAsEnvVariables } from "./env-variables";
 
 export const X86_64_ARCHITECTURE = "x86_64";
 export const ARM64_ARCHITECTURE = "arm64";
@@ -31,8 +31,12 @@ export function addExtension(service: Service, functions: FunctionDefinition[], 
     if (extensionLayerARN) {
         removeLayer(service, func, extensionLayerARN);
         addLayer(service, func, extensionLayerARN);
-        console.log("Adding env variables");
-        setEnvVarsToFunctions(config, functions);
+        console.log("Adding env variables to function", func.name);
+        setEnvVarsToFunction(config, func);
+        if (config.enableTags) {
+          console.log("Adding tags to function", func.name);
+          setTagsAsEnvVariables(func);
+        }
     }
   }
 }
