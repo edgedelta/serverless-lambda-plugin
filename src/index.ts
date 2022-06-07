@@ -11,8 +11,8 @@ const allAvailableExtensions = { regions: { ...extensions } };
 module.exports = class ServerlessPlugin {
   public hooks = {
     "before:package:package": this.validateConfig.bind(this),
-    "before:deploy:deploy": this.handleLambdaExtension.bind(this),
-    // "deploy:deploy": this.handleLambdaExtension.bind(this),
+    "before:package:initialize": this.validateConfig.bind(this),
+    "after:package:initialize": this.handleLambdaExtension.bind(this),
     "before:deploy:function:packageFunction": this.validateConfig.bind(this),
     "before:deploy:function:deploy": this.handleLambdaExtension.bind(this),
   };

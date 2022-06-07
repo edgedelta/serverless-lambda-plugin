@@ -73,7 +73,7 @@ function removeLayer(service: Service, func: FunctionDefinition, previousLayer: 
   const currentLayersService = ((service.provider as any).layers as string[] | string[]) || [];
   let currentLayers : string[] = [];
   if (currentLayersFunc.length > 0 || currentLayersService.length === 0) {
-    currentLayers =currentLayersFunc;
+    currentLayers = currentLayersFunc;
   } else {
     currentLayers = currentLayersService;
   }
