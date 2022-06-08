@@ -20,22 +20,30 @@ export interface Config {
   logRetryInterval?: string;
   // When set, this plugin will not add extensions to these functions.
   excludeFunctions?: string[];
+  // When set to true, this plugin will read tag values from the functions or service itself and
+  // add those as environment variables to lambda. Default is false.
+  enableTags?: boolean;
 }
 
 export function getConfig(service: Service): Config {
   let custom = service.custom as any;
   if (custom === undefined) {
-    custom = {
-      operation: "add",
-      enabled: true,
-    };
+    custom = {};
   }
 
   let edgedelta = custom.edgedelta as Partial<Config> | undefined;
   if (edgedelta === undefined) {
-    edgedelta = {};
+    edgedelta = {
+      operation: "add",
+      enabled: true,
+      enableTags: false,
+    };
   }
 
+  if (edgedelta.enableTags === undefined) {
+    edgedelta.enableTags = false;
+  }
+  
   const config: Config = {
     ...edgedelta,
   };

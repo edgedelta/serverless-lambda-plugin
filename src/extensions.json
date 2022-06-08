@@ -1,6 +1,6 @@
 {
   "us-west-2": {
-    "arm64": "arn:aws:lambda:us-west-2:233765244907:layer:edgedelta-lambda-extension-arm64:1",
-    "x86_64": "arn:aws:lambda:us-west-2:233765244907:layer:edgedelta-lambda-extension-x86_64:1"
+    "arm64": "arn:aws:lambda:us-west-2:233765244907:layer:edgedelta-lambda-extension-arm64:2",
+    "x86_64": "arn:aws:lambda:us-west-2:233765244907:layer:edgedelta-lambda-extension-x86_64:5"
   }
 }

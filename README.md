@@ -30,6 +30,7 @@ Also our plugin needs some configuration variables:
 - edEndpoint: Edge Delta hosted environment endpoint. Required if operation is set to "add"
 - operation: Supports adding "add" and removing "remove" Edge Delta lambda extension. Defaults to "add".
 - excludeFunctions: Function names you want to exclude from either operation.
+- enableTags: Tags configured on the function is added to the lambda environmnet with ED_TAG_ prefix. Defaults to false.
 
 Sample config:
 ```
@@ -39,6 +40,7 @@ custom:
     edEndpoint: "https://us-west-2.aws.ingress.edgedelta.com/listen/179d2640-fafb-4d3f-81ea-ad3abda3c239"
     operation: "add"
     excludeFunctions: ["dev-lambdaName2"]
+    enableTags: true
 ```
 
 In order to deploy function with extension we currently support:
@@ -47,4 +49,7 @@ serverless deploy function --function <func name> --verbose
 
 ```
 
-Working on supporting all out deploy. 
+In order to do full deploy:
+```
+serverless deploy --verbose
+```
