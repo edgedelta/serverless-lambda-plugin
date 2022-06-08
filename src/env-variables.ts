@@ -8,6 +8,7 @@ export const bufferSizeKey = "ED_BUFFER_SIZE";
 export const retryTimeoutKey = "ED_RETRY_TIMEOUT";
 export const retryIntervalKey = "ED_RETRY_INTERVAL";
 export const modeKey = "ED_PUSHER_MODE";
+export const forwardEnvVarsKey = "ED_FORWARD_ENV_VARS";
 
 export const tagPrefix = "ED_TAG_";
 
@@ -52,7 +53,7 @@ export function setTagsAsEnvVariables(
       environment[`${tagPrefix}${upperCaseKey}`] = tags[key];
     });
     
-    environment["ED_FORWARD_ENV_VARS"] = "true";
+    environment[forwardEnvVarsKey] = "true";
 }
 
 export function removeEnvVarsFromFunction(func: FunctionDefinition) {
@@ -83,5 +84,5 @@ export function removeEnvVarsFromFunction(func: FunctionDefinition) {
     delete environment[`${tagPrefix}${upperCaseKey}`];
   });
 
-  delete environment["ED_FORWARD_ENV_VARS"];
+  delete environment[forwardEnvVarsKey];
 }
