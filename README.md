@@ -20,7 +20,7 @@ npm publish --access public
 
 On the Serverless service side, you can install the plugin by running:
 ```
-serverless plugin install -n  @edgedelta/serverless-plugin-edgedelta
+serverless plugin install -n  @edgedelta/serverless-lambda-extension
 
 ```
 which will install the latest version.
